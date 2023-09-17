@@ -1,0 +1,17 @@
+<ion-list>
+  
+  <form [formGroup]="form">
+    <ion-item>
+      <ion-input label="Email" formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Password" type="password" formControlName="password"></ion-input>
+    </ion-item>
+  </form>
+
+</ion-list>
+
+<ion-button  type="submit" (click)="SignIn()">Ingresar</ion-button>
+<ion-button  type="submit" (click)="SignUp()">Registrarse</ion-button>
+
