@@ -44,7 +44,7 @@ export class AngularFireService {
         this.afAuth.authState.subscribe((user) => {
           if (user) {
             // this.router.navigate(['home']);
-            alert("Bienvenid@")
+            alert("Bienvenido")
           }
         });
       })
