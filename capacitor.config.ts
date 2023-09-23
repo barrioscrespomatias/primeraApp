@@ -1,12 +1,32 @@
-import { CapacitorConfig } from '@capacitor/cli';
+  /// <reference types="@capacitor/splash-screen" />
 
-const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'primeraApp',
-  webDir: 'www',
-  server: {
-    androidScheme: 'https'
-  }
-};
+  import { CapacitorConfig } from '@capacitor/cli';
 
-export default config;
+  const config: CapacitorConfig = {
+    appId: 'com.example.app',
+    appName: 'primeraApp',
+    webDir: 'www',
+    server: {
+      androidScheme: 'https'
+    },
+    plugins: {
+      SplashScreen: {
+        launchShowDuration: 3000,
+        launchAutoHide: true,
+        launchFadeOutDuration: 3000,
+        backgroundColor: "#ffffffff",
+        androidSplashResourceName: "splash",
+        androidScaleType: "CENTER_CROP",
+        showSpinner: true,
+        androidSpinnerStyle: "large",
+        iosSpinnerStyle: "small",
+        spinnerColor: "#999999",
+        splashFullScreen: true,
+        splashImmersive: true,
+        layoutName: "launch_screen",
+        useDialog: true,
+      },
+    }
+  };
+  
+  export default config;
