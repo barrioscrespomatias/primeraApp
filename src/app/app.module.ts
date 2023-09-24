@@ -9,9 +9,14 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { MenuComponent } from './components/menu/menu.component';
+import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
+import { ToastComponent } from './components/toast/toast.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, MenuComponent, LoginComponent, HomeComponent, ToastComponent],
   imports: [
     BrowserModule,
      IonicModule.forRoot(), 
@@ -19,6 +24,11 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
     provideFirebaseApp(() => initializeApp(environment)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  exports: [
+    MenuComponent, LoginComponent,HomeComponent,ToastComponent // Agrega el componente en la sección de exports
   ],
   providers: [
     { provide: FIREBASE_OPTIONS, useValue: environment }

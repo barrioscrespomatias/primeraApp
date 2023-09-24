@@ -1,0 +1,3 @@
+<ion-button expand="block" *ngIf="position == 'top'" (click)="presentToast('top', message)">{{buttonMessage}}</ion-button>
+<ion-button expand="block" *ngIf="position == 'middle'" (click)="presentToast('middle', message)">{{buttonMessage}}</ion-button>
+<ion-button expand="block" *ngIf="position == 'bottom'" (click)="presentToast('bottom', message)">{{buttonMessage}}</ion-button>
