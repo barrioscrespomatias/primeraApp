@@ -7,22 +7,16 @@ import { AngularFireService } from '../../services/angular-fire.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent  implements OnInit {
-
+export class LoginComponent implements OnInit {
   form!: FormGroup;
   public isLogged: boolean = false;
 
-  constructor(
-    public angularFireService: AngularFireService,
-    // public firestoreService: FirestoreService
-  ) {this.checkLoggedIn();}
+  constructor(public angularFireService: AngularFireService) {
+    this.checkLoggedIn();
+  }
 
   async checkLoggedIn() {
     this.isLogged = await this.angularFireService.isLoggedIn();
-  }
-
-  SignOut() {
-    this.angularFireService.SignOut();
   }
 
   SignIn() {
@@ -37,12 +31,16 @@ export class LoginComponent  implements OnInit {
     this.angularFireService.SignUp(this.email?.value, this.password?.value);
   }
 
-
   ngOnInit(): void {
     this.form = new FormGroup({
-      // usuario : new FormControl('',)
-      email: new FormControl('', [Validators.pattern('^[a-zA-Z]+$')]),
-      password: new FormControl('', [Validators.pattern('^[a-zA-Z]+$')]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [
+        Validators.pattern(
+          '^[a-zA-Z0-9\\s!@#$%^&*()_+\\-=\\[\\]{};:\'",.<>/?]+$'
+        ),
+        Validators.minLength(4),
+        Validators.required,
+      ]),
     });
   }
 

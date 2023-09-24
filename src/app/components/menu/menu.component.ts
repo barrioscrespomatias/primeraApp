@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireService } from '../../services/angular-fire.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent  implements OnInit {
 
-  constructor() { }
+  constructor(public angularFireService: AngularFireService) { }
 
   ngOnInit() {}
 
+  SignOut() {
+    this.angularFireService.SignOut();
+  }
 }
